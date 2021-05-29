@@ -5,6 +5,10 @@ const PORT = process.env.PORT || 5000;
 
 connectToDB();
 
+app.use("/api/user", require("./routes/user"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/profile", require("./routes/profile"));
+
 app.get("/", () => console.log("TEST"));
 
 app.listen(PORT, () => `Listening on port ${PORT}`);
