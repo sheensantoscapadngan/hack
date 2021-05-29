@@ -1,40 +1,64 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux';
-import PostInterface from '../../interfaces/PostInterface';
-import { createPost } from '../../actions/post';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import PostInterface from "../../interfaces/PostInterface";
+import { createPost } from "../../actions/post";
 
-const AddPost = ({ accessToken, authId, createPost}: PostInterface) => {
-    const [formData, setFormData] = useState({
-        language: '',
-        description: '',
-        content: '',
+const AddPost = ({ accessToken, authId, createPost }: PostInterface) => {
+  const [formData, setFormData] = useState({
+    language: "",
+    description: "",
+    content: "",
+  });
+  const { language, description, content } = formData;
+
+  const onFormChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-    const { language, description, content } = formData;
+  };
 
-    const onFormChange = (e: any) => {
-        setFormData({
+  return (
+    <div>
+      <input
+        placeholder="Language"
+        type="text"
+        name="language"
+        value={language}
+        onChange={(e) => onFormChange(e)}
+      ></input>
+      <input
+        placeholder="Description"
+        type="text"
+        name="description"
+        value={description}
+        onChange={(e) => onFormChange(e)}
+      ></input>
+      <input
+        placeholder="Source Code"
+        type="text"
+        name="content"
+        value={content}
+        onChange={(e) => onFormChange(e)}
+      ></input>
+      <button
+        onClick={() =>
+          createPost({
+            accessToken,
+            authId,
             ...formData,
-            [e.target.name]: e.target.value,
-        })
-    }
+          })
+        }
+      >
+        Add post
+      </button>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <input placeholder="Language" type="text" name="language" value={language} onChange={(e) => onFormChange(e)}></input>
-            <input placeholder="Description" type="text" name="description" value={description} onChange={(e) => onFormChange(e)}></input>
-            <input placeholder="Source Code" type="text" name="content" value={content} onChange={(e) => onFormChange(e)}></input>
-            <button onClick={() => createPost({
-                accessToken,
-                authId,
-                ...formData,
-            })}>Add post</button>
-        </div>
-    )
-}
-
-const mapStateToProps = (state: any)=> ({
-    accessToken: state.auth.accessToken,
-    authId: state.auth.authId,
-})
+const mapStateToProps = (state: any) => ({
+  accessToken: state.auth.accessToken,
+  authId: state.auth.authId,
+});
 
 export default connect(mapStateToProps, { createPost })(AddPost);
