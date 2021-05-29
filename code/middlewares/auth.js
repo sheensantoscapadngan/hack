@@ -2,7 +2,6 @@ const admin = require("../firebase/admin");
 
 module.exports = async (req, res, next) => {
   const accessToken = req.header("Access-Token");
-  console.log("ACCESS TOKEN IS", accessToken);
   admin
     .auth()
     .verifyIdToken(accessToken)

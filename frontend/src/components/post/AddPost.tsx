@@ -34,13 +34,14 @@ const AddPost = ({ accessToken, authId, createPost }: PostInterface) => {
         value={description}
         onChange={(e) => onFormChange(e)}
       ></input>
-      <input
+      <textarea
+        className="row"
+        cols={100}
         placeholder="Source Code"
-        type="text"
         name="content"
         value={content}
         onChange={(e) => onFormChange(e)}
-      ></input>
+      ></textarea>
       <button
         onClick={() =>
           createPost({
