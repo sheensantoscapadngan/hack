@@ -1,0 +1,15 @@
+{
+  "name": "hack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server --prefix code\" \"npm run start --prefix frontend\""
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
