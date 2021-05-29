@@ -20,9 +20,9 @@ const AddPost = ({ accessToken, authId, createPost}: PostInterface) => {
 
     return (
         <div>
-            <input type="text" name="language" value={language} onChange={(e) => onFormChange(e)}></input>
-            <input type="text" name="description" value={description} onChange={(e) => onFormChange(e)}></input>
-            <input type="text" name="content" value={content} onChange={(e) => onFormChange(e)}></input>
+            <input placeholder="Language" type="text" name="language" value={language} onChange={(e) => onFormChange(e)}></input>
+            <input placeholder="Description" type="text" name="description" value={description} onChange={(e) => onFormChange(e)}></input>
+            <input placeholder="Source Code" type="text" name="content" value={content} onChange={(e) => onFormChange(e)}></input>
             <button onClick={() => createPost({
                 accessToken,
                 authId,

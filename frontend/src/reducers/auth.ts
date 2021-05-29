@@ -2,6 +2,7 @@ import { LOGIN_USER } from './../actions/types';
 const initialState = {
     authId: "",
     accessToken: "",
+    isAuthenticated: false,
 }
 
 export default function(state = initialState, action: any) {
@@ -11,6 +12,7 @@ export default function(state = initialState, action: any) {
             return {
                 authId: payload.authId,
                 accessToken: payload.accessToken,
+                isAuthenticated: true,
             }
         default:
             return state;
