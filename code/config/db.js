@@ -3,7 +3,6 @@ const config = require("config");
 const mongoURL = config.get("mongoURL");
 
 const connectToDB = async () => {
-  console.log("MONGO URL IS", mongoURL);
   try {
     await mongoose.connect(mongoURL, {
       useUnifiedTopology: true,
