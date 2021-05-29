@@ -27,7 +27,7 @@ export const loginUser = () => async (dispatch: any) => {
             type: LOGIN_USER,
             payload: {
                 authId: res.data.authId,
-                accessToken: token,
+                accessToken: await user?.getIdToken(),
             }
         })
         dispatch({

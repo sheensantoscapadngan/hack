@@ -1,3 +1,4 @@
 {
-    "mongoURL": "mongodb+srv://sheencapadngan:sheenthesheep@hack.crw1r.mongodb.net/hack?retryWrites=true&w=majority"
+    "mongoURL": "mongodb+srv://sheencapadngan:sheenthesheep@hack.crw1r.mongodb.net/hack?retryWrites=true&w=majority",
+    "serviceAccountPath": "C:\\Users\\admin\\Desktop\\Work\\hack-88778-firebase-adminsdk-xoq1y-494d8036ae.json"
 }
