@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
   const { email, displayName, authId, picture } = req.body;
   const user = await User.findOne({ email });
   if (user) {
-    res.json(user);
+    return res.json(user);
   }
   const newUser = new User({
     email,

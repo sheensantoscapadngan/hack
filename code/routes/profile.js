@@ -26,4 +26,13 @@ router.post("/:id", auth, async (req, res) => {
   return res.json(user);
 });
 
+router.get("/:id", async (req, res) => {
+  const authId = req.params.id;
+  const user = await User.findOne({ authId });
+  if (!user) {
+    return res.status(404).send("USER DOES NOT EXIST");
+  }
+  return res.json(user);
+});
+
 module.exports = router;
