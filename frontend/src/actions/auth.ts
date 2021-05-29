@@ -1,4 +1,4 @@
-import { LOGIN_USER } from "./types";
+import { LOAD_OWN_PROFILE, LOGIN_USER } from "./types";
 import firebase from '../firebase/firebase';
 import axios from "axios";
 
@@ -26,11 +26,14 @@ export const loginUser = () => async (dispatch: any) => {
         dispatch({
             type: LOGIN_USER,
             payload: {
-                user: res.data,
+                authId: res.data.authId,
                 accessToken: token,
             }
         })
-
+        dispatch({
+            type: LOAD_OWN_PROFILE,
+            payload: res.data,
+        })
     } catch (error) {
         console.error(error);
     }

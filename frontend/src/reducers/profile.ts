@@ -1,16 +1,15 @@
-import { LOGIN_USER } from './../actions/types';
+import { CREATE_POST, LOAD_OWN_PROFILE } from './../actions/types';
 const initialState = {
-    authId: "",
-    accessToken: "",
+    user: {},
 }
 
 export default function(state = initialState, action: any) {
     const { type, payload } = action;
     switch(type) {
-        case LOGIN_USER: 
+        case LOAD_OWN_PROFILE:
+        case CREATE_POST: 
             return {
-                authId: payload.authId,
-                accessToken: payload.accessToken,
+                user: payload,
             }
         default:
             return state;
