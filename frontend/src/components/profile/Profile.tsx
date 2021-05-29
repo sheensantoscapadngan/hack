@@ -15,11 +15,11 @@ export const Profile = (props: any) => {
   const renderedPosts =
     props.user.snippets &&
     props.user.snippets.map((entry: any) => (
-      <>
-        <h1>{entry.language}</h1>
-        <h2>{entry.description}</h2>
+      <div style={{ marginBottom: "15px" }}>
+        <h3>{entry.language}</h3>
+        <h4>{entry.description}</h4>
         <code>{entry.content}</code>
-      </>
+      </div>
     ));
 
   return (
