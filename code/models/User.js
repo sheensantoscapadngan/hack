@@ -8,7 +8,7 @@ const UserSchema = mongoose.Schema({
     required: true,
     type: String,
   },
-  uid: {
+  authId: {
     required: true,
     type: String,
   },
@@ -18,4 +18,4 @@ const UserSchema = mongoose.Schema({
   snippets: [],
 });
 
-export default new mongoose.model("User", UserSchema);
+module.exports = new mongoose.model("User", UserSchema);
